@@ -1,5 +1,6 @@
 package com.example.glorifrutas.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -7,10 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -37,7 +35,7 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 NavHost(navController, startDestination = "main") {
                     composable("main") { MainScreen(navController) }
-                    composable("menuFrutas") { MenuFrutasScreen() }
+                    composable("menuFrutas") { MenuFrutasScreen(navController) }
                 }
             }
         }
@@ -86,17 +84,14 @@ fun MainScreen(navController: NavHostController) {
     }
 }
 
-@Composable
-fun MenuFrutasScreen() {
-    // Content for MenuFrutas screen
-    Text(text = "Menu Frutas Screen")
-}
-
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
     GlorifrutasTheme {
         val navController = rememberNavController()
-        MainScreen(navController)
+        Scaffold {
+            MainScreen(navController)
+        }
     }
 }
