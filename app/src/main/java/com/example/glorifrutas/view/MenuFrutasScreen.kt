@@ -1,3 +1,4 @@
+// MenuFrutasScreen.kt
 package com.example.glorifrutas.view
 
 import androidx.compose.foundation.Image
@@ -14,7 +15,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -128,7 +128,7 @@ fun FrutaCard(fruta: Fruta, navController: NavHostController) {
         Column(
             modifier = Modifier.padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
-        ) {
+        )  {
             Image(
                 painter = painterResource(id = fruta.imagenResId),
                 contentDescription = null,
@@ -153,7 +153,7 @@ fun FrutaCard(fruta: Fruta, navController: NavHostController) {
                     disabledContentColor = Color.White.copy(alpha = 0.5f)
                 )
             ) {
-                Text(text = "Ver más", color = Color.White)
+                Text(text = "Ver más", color = Color.Gray, fontWeight = FontWeight.Bold)
             }
         }
     }
