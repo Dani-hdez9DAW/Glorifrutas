@@ -8,5 +8,7 @@ data class Fruta(
     val descripcionCorta: String,
     val descripcionLarga: String,
     val imagenResId: Int,
-    val valoracion: Int
+    val valoracion: Int,
+    val datoCurioso:String,
+    val lugarCosecha: String,
 )

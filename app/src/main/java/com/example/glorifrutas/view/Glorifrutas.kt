@@ -36,6 +36,10 @@ class MainActivity : ComponentActivity() {
                 NavHost(navController, startDestination = "main") {
                     composable("main") { MainScreen(navController) }
                     composable("menuFrutas") { MenuFrutasScreen(navController) }
+                    composable("detalleFruta/{frutaId}") { backStackEntry ->
+                        val frutaId = backStackEntry.arguments?.getString("frutaId")?.toInt() ?: 0
+                        InfoFrutaScreen(navController, frutaId)
+                    }
                 }
             }
         }
@@ -44,19 +48,23 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainScreen(navController: NavHostController) {
+    val backgroundColor = Color(0xFFF5E1C3) // Reemplaza con el código de color exacto de la imagen
+
     Scaffold(
         modifier = Modifier.fillMaxSize()
     ) { innerPadding ->
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White)
+                .background(backgroundColor) // Aplicar el nuevo color
         ) {
             Image(
                 painter = painterResource(id = R.drawable.logoglorifrutas),
                 contentDescription = null,
-                contentScale = ContentScale.FillBounds,
-                modifier = Modifier.fillMaxSize()
+                contentScale = ContentScale.Fit,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()
             )
             Column(
                 modifier = Modifier

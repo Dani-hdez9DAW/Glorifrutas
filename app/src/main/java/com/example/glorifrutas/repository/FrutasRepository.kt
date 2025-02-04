@@ -13,7 +13,9 @@ class FrutasRepository {
                 "Una manzana roja deliciosa y jugosa, perfecta para un snack saludable.",
                 "Una manzana roja deliciosa y jugosa, perfecta para un snack saludable o para hacer postres. Es rica en fibra y vitaminas, y se puede disfrutar de muchas maneras diferentes, ya sea cruda, cocida o en jugos.",
                 R.drawable.manzana,
-                5
+                5,
+                "Las manzanas flotan en el agua porque están compuestas en un 25% de aire.",
+                "Estados Unidos 🇺🇸"
             ),
             Fruta(
                 2,
@@ -22,7 +24,9 @@ class FrutasRepository {
                 "Una banana amarilla dulce y nutritiva, ideal para batidos y postres.",
                 "Una banana amarilla dulce y nutritiva, ideal para batidos, postres o simplemente como un snack rápido. Las bananas son una excelente fuente de potasio y energía, y son perfectas para llevar a cualquier lugar.",
                 R.drawable.banana,
-                4
+                4,
+                "Las bananas son técnicamente bayas.",
+                "Ecuador 🇪🇨"
             ),
             Fruta(
                 3,
@@ -31,7 +35,9 @@ class FrutasRepository {
                 "Una naranja jugosa y rica en vitamina C, excelente para jugos frescos.",
                 "Una naranja jugosa y rica en vitamina C, excelente para jugos frescos o para comer directamente. Las naranjas son conocidas por su capacidad para fortalecer el sistema inmunológico y proporcionar una gran cantidad de antioxidantes.",
                 R.drawable.naranjas,
-                5
+                5,
+                "Las naranjas son el fruto cítrico más cultivado en el mundo.",
+                "España 🇪🇸"
             ),
             Fruta(
                 4,
@@ -40,7 +46,9 @@ class FrutasRepository {
                 "Una fresa roja dulce y jugosa, perfecta para postres y batidos.",
                 "Una fresa roja dulce y jugosa, perfecta para postres y batidos. Las fresas son bajas en calorías y ricas en vitamina C, fibra y antioxidantes, lo que las convierte en una opción saludable y deliciosa.",
                 R.drawable.fresas,
-                5
+                5,
+                "Las fresas son la única fruta con semillas en el exterior.",
+                "México 🇲🇽"
             ),
             Fruta(
                 5,
@@ -49,7 +57,9 @@ class FrutasRepository {
                 "Un racimo de uvas moradas, ideal para snacks o para hacer vino.",
                 "Un racimo de uvas moradas, ideal para comer como snack o para hacer vino. Las uvas son ricas en antioxidantes y tienen propiedades antiinflamatorias, lo que las hace beneficiosas para la salud del corazón.",
                 R.drawable.uvas,
-                4
+                4,
+                "Las uvas son uno de los cultivos más antiguos del mundo.",
+                "Italia 🇮🇹"
             ),
             Fruta(
                 6,
@@ -58,7 +68,9 @@ class FrutasRepository {
                 "Una piña tropical dulce y jugosa, perfecta para jugos y postres.",
                 "Una piña tropical dulce y jugosa, perfecta para jugos y postres. La piña es conocida por su contenido de bromelina, una enzima que ayuda en la digestión y tiene propiedades antiinflamatorias.",
                 R.drawable.pinas,
-                5
+                5,
+                "Las piñas pueden tardar hasta tres años en madurar.",
+                "Costa Rica 🇨🇷"
             ),
             Fruta(
                 7,
@@ -67,7 +79,9 @@ class FrutasRepository {
                 "Un mango dulce y jugoso, ideal para batidos y postres tropicales.",
                 "Un mango dulce y jugoso, ideal para batidos y postres tropicales. Los mangos son ricos en vitaminas A y C, y son conocidos por su sabor exótico y su capacidad para mejorar la salud de la piel.",
                 R.drawable.mangos,
-                5
+                5,
+                "El mango es la fruta nacional de India, Pakistán y Filipinas.",
+                "India 🇮🇳"
             ),
             Fruta(
                 8,
@@ -76,7 +90,9 @@ class FrutasRepository {
                 "Una sandía grande y jugosa, perfecta para refrescarse en verano.",
                 "Una sandía grande y jugosa, perfecta para refrescarse en verano. La sandía es hidratante y baja en calorías, y es una excelente fuente de vitaminas A y C, así como de antioxidantes como el licopeno.",
                 R.drawable.sandias,
-                5
+                5,
+                "La sandía está compuesta en un 92% de agua.",
+                "Brasil 🇧🇷"
             )
         )
         return frutas
