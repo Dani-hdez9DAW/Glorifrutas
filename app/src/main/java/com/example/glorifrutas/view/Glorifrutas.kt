@@ -19,6 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -83,8 +84,9 @@ fun MainScreen(navController: NavHostController) {
                 ) {
                     Text(
                         text = "Comenzar",
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold
+                        color = colorResource(id = R.color.gray_700),
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp
                     )
                 }
             }

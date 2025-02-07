@@ -118,6 +118,7 @@ fun InfoFrutaScreen(
                                 horizontalArrangement = Arrangement.Center,
                                 modifier = Modifier.fillMaxWidth()
                             ) {
+                                Text(text = "Cosecha principal: ", fontWeight = FontWeight.Bold, fontSize = 12.sp)
                                 Text(text = it.lugarCosecha)
                             }
 
@@ -135,6 +136,7 @@ fun InfoFrutaScreen(
                                     )
                                 }
                             }
+                            HorizontalDivider(thickness = 1.dp, color = Color.Black)
                         }
                     }
                 }

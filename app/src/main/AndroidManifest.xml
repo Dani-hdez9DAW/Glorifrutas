@@ -6,15 +6,16 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/logoglorifrutas"
+        android:icon="@mipmap/glorifrutas"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/glorifrutas_background"
+        android:roundIcon="@mipmap/glorifrutas"
         android:supportsRtl="true"
         android:theme="@style/Theme.Glorifrutas"
         tools:targetApi="31">
         <activity
             android:name=".view.MainActivity"
             android:exported="true"
+            android:roundIcon="@mipmap/glorifrutas"
             android:label="@string/app_name"
             android:theme="@style/Theme.Glorifrutas">
             <intent-filter>
