@@ -2,7 +2,7 @@
 
 ![Logo de Glorifrutas](app/src/main/res/drawable/logoglorifrutas.png)
 
-Glorifrutas es una aplicación que permite consultar información detallada sobre diversas frutas. Funciona como un glosario interactivo en el que los usuarios pueden explorar descripciones, propiedades nutricionales, beneficios para la salud y curiosidades sobre cada fruta.
+Glorifrutas es una aplicación que permite consultar información detallada sobre diversas frutas. Funciona como un glosario interactivo en el que los usuarios pueden explorar descripciones, caracteristicas, valoracion de cada fruta y curiosidades sobre cada fruta.
 
 ## Características
 - Búsqueda rápida de frutas por nombre.
