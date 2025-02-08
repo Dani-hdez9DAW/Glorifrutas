@@ -38,6 +38,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -153,7 +154,7 @@ fun FrutaCard(fruta: Fruta, navController: NavHostController) {
                     disabledContentColor = Color.White.copy(alpha = 0.5f)
                 )
             ) {
-                Text(text = "Ver más", color = Color.Gray, fontWeight = FontWeight.Bold)
+                Text(text = "Ver más", color = colorResource(id = R.color.gray_700), fontWeight = FontWeight.Bold, textDecoration = TextDecoration.Underline)
             }
         }
     }

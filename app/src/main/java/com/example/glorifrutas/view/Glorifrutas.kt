@@ -1,6 +1,7 @@
 package com.example.glorifrutas.view
 
 import android.annotation.SuppressLint
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -28,11 +29,16 @@ import com.example.glorifrutas.R
 import com.example.glorifrutas.ui.theme.GlorifrutasTheme
 
 class MainActivity : ComponentActivity() {
+    private var mediaPlayer: MediaPlayer? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             GlorifrutasTheme {
+                mediaPlayer = MediaPlayer.create(this, R.raw.mainscreen)
+                mediaPlayer?.isLooping = true
+                mediaPlayer?.start()
                 val navController = rememberNavController()
                 NavHost(navController, startDestination = "main") {
                     composable("main") { MainScreen(navController) }
@@ -45,11 +51,17 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer?.release()
+        mediaPlayer = null
+    }
 }
 
 @Composable
 fun MainScreen(navController: NavHostController) {
-    val backgroundColor = Color(0xFFF5E1C3) // Reemplaza con el código de color exacto de la imagen
+    val backgroundColor = Color(0xFFF5E1C3)
 
     Scaffold(
         modifier = Modifier.fillMaxSize()
@@ -57,7 +69,7 @@ fun MainScreen(navController: NavHostController) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(backgroundColor) // Aplicar el nuevo color
+                .background(backgroundColor)
         ) {
             Image(
                 painter = painterResource(id = R.drawable.logoglorifrutas),

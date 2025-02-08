@@ -1,28 +1,40 @@
-package com.example.glorifrutas.db;
+package com.example.glorifrutas.db
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
 
-public class Conexion extends SQLiteOpenHelper {
+class Conexion(context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
 
-    private static final String DB_NAME = "glorifrutas";
-    private static final int DB_VERSION = 1;
+    override fun onCreate(db: SQLiteDatabase) {
+        // Crear tabla de frutas
+        db.execSQL(DBmanager.TABLA_FRUTA_CREATE)
 
-    public Conexion(Context context) {
-        super(context, DB_NAME, null, DB_VERSION);
+        // Crear tabla de empresas si es necesaria (añádela aquí si es relevante)
+        // db.execSQL(DBmanager.TABLA_EMPRESAS_CREATE)
+
+        // Insertar datos iniciales (opcional para pruebas)
+        db.execSQL("""
+            INSERT INTO ${DBmanager.TABLA_FRUTA} 
+            (${DBmanager.FRUTA_NOMBRE}, ${DBmanager.FRUTA_COLOR}, ${DBmanager.FRUTA_DESCRIPCION_CORTA}, 
+            ${DBmanager.FRUTA_DESCRIPCION_LARGA}, ${DBmanager.FRUTA_IMAGEN_RES_ID}, ${DBmanager.FRUTA_VALORACION}, 
+            ${DBmanager.FRUTA_DATO_CURIOSO}, ${DBmanager.FRUTA_LUGAR_COSECHA}) 
+            VALUES ('Manzana', 0xFFFF0000, 'Fruta roja dulce', 'La manzana es deliciosa y crujiente.', 0, 5, 
+            'Es buena para la salud.', 'Valle Central')
+        """)
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(DBmanager.TABLA_EMPRESA_CREATE);
-        sqLiteDatabase.execSQL(DBmanager.TABLA_FRUTA_CREATE);
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+        // Elimina las tablas existentes y vuelve a crearlas
+        db.execSQL("DROP TABLE IF EXISTS ${DBmanager.TABLA_FRUTA}")
+        // db.execSQL("DROP TABLE IF EXISTS empresas") // Si necesitas esta tabla, asegúrate de crearla en onCreate
+        onCreate(db)
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + DBmanager.TABLA_FRUTA);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS empresas");
-        onCreate(sqLiteDatabase);
+    companion object {
+        // Nombre de la base de datos
+        private const val DB_NAME = "glorifrutas.db"
+        // Versión de la base de datos
+        private const val DB_VERSION = 1
     }
 }
