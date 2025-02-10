@@ -10,7 +10,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -27,6 +27,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.glorifrutas.R
 import com.example.glorifrutas.ui.theme.GlorifrutasTheme
+import kotlinx.coroutines.delay
+import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
     private var mediaPlayer: MediaPlayer? = null
@@ -62,6 +64,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(navController: NavHostController) {
     val backgroundColor = Color(0xFFF5E1C3)
+    var isLoading by remember { mutableStateOf(false) }
 
     Scaffold(
         modifier = Modifier.fillMaxSize()
@@ -87,19 +90,33 @@ fun MainScreen(navController: NavHostController) {
                 verticalArrangement = Arrangement.Bottom,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Button(
-                    onClick = { navController.navigate("menuFrutas") },
-                    colors = ButtonDefaults.buttonColors(colorResource(id = R.color.orange_200)),
-                    modifier = Modifier
-                        .padding(bottom = 32.dp)
-                        .size(width = 200.dp, height = 60.dp)
-                ) {
-                    Text(
-                        text = "Comenzar",
-                        color = colorResource(id = R.color.gray_700),
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 20.sp
+                if (isLoading) {
+                    CircularProgressIndicator(
+                        color = colorResource(id = R.color.orange_200),
+                        modifier = Modifier.padding(bottom = 32.dp)
                     )
+                    LaunchedEffect(Unit) {
+                        val delayTime = Random.nextLong(2000, 5000)
+                        delay(delayTime)
+                        navController.navigate("menuFrutas")
+                    }
+                } else {
+                    Button(
+                        onClick = {
+                            isLoading = true
+                        },
+                        colors = ButtonDefaults.buttonColors(colorResource(id = R.color.orange_200)),
+                        modifier = Modifier
+                            .padding(bottom = 32.dp)
+                            .size(width = 200.dp, height = 60.dp)
+                    ) {
+                        Text(
+                            text = "Comenzar",
+                            color = colorResource(id = R.color.gray_700),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 20.sp
+                        )
+                    }
                 }
             }
         }
