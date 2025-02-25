@@ -22,13 +22,13 @@ Glorifrutas requiere conexión a Internet para acceder a toda la información de
 
 🛠 Tecnologías Utilizadas
 Android Studio 📲
-![!WARNING]
+>![!WARNING]
 
-🚨 Versión de Android
+>🚨 Versión de Android
 Koala Feature Drop 🐨 (AGP 8.6.0)
 Si tienes un AGP anterior, la aplicación no arrancará.
-[!NOTE]
-Compatibilidad: La app está optimizada para dispositivos con Android 10 o superior.
+>[!NOTE]
+>Compatibilidad: La app está optimizada para dispositivos con Android 10 o superior.
 
 🚀 Instalación
 Para ejecutar la aplicación en un entorno local, sigue estos pasos:
