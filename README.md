@@ -22,15 +22,14 @@ caracteristicas, valoracion de cada fruta y curiosidades sobre cada fruta.
 
 🛠 Tecnologías Utilizadas
 Android Studio 📲
->[!WARNING]
-
->🚨 Versión de Android
+> [!WARNING]
+> 🚨 Versión de Android
 Koala Feature Drop 🐨 (AGP 8.6.0)
 Si tienes un AGP anterior, la aplicación no arrancará.
 >[!NOTE]
 >Compatibilidad: La app está optimizada para dispositivos con Android 10 o superior.
 
-🚀 Instalación
+#🚀 Instalación
 Para ejecutar la aplicación en un entorno local, sigue estos pasos:
 
 Clona el repositorio:
