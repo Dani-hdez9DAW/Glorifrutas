@@ -32,14 +32,12 @@ Si tienes un AGP anterior, la aplicación no arrancará.
 ## 🚀 Instalación
 Para ejecutar la aplicación en un entorno local, sigue estos pasos:
 
-Clona el repositorio:
-bash
-Copiar
-Editar
-git clone https://github.com/Dani-hdez9DAW/Glorifrutas.git
-Abre el proyecto en Android Studio.
-Ejecuta la aplicación en un emulador o dispositivo físico.
-¡Listo! A disfrutar de Glorifrutas. 🚀
+1. Clona el repositorio:
+   git clone https://github.com/Dani-hdez9DAW/Glorifrutas.git
+2. Abre el proyecto en Android Studio.
+3. Ejecuta la aplicación en un emulador o dispositivo físico.
+4. ¡Listo! 🚀
+
 >[!TIP]
 >Recomendación: Usa un dispositivo físico en lugar de un emulador para una mejor experiencia de rendimiento.
 
