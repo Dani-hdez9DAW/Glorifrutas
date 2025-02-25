@@ -29,7 +29,7 @@ Si tienes un AGP anterior, la aplicación no arrancará.
 >[!NOTE]
 >Compatibilidad: La app está optimizada para dispositivos con Android 10 o superior.
 
-#🚀 Instalación
+## 🚀 Instalación
 Para ejecutar la aplicación en un entorno local, sigue estos pasos:
 
 Clona el repositorio:
