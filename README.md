@@ -17,11 +17,11 @@ caracteristicas, valoracion de cada fruta y curiosidades sobre cada fruta.
 ## Tecnologías Utilizadas
 
 - **Android Studio 📲**
+> [!WARNING]
+>## Version de Android
 
-## Version de Android
-
-- **Koala Feature Drop 🐨 (AGP 8.6.0)**
-- **Si tienes un AGP anterior, no arrancará la aplicacion**
+>- **Koala Feature Drop 🐨 (AGP 8.6.0)**
+>- **Si tienes un AGP anterior, no arrancará la aplicacion**
 
 ## Instalación
 
