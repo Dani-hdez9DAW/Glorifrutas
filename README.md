@@ -14,21 +14,35 @@ caracteristicas, valoracion de cada fruta y curiosidades sobre cada fruta.
 - Interfaz amigable e intuitiva 🖒.
 - Musica de fondo 🎶
 
-## Tecnologías Utilizadas
+[!TIP]
+Usa la barra de búsqueda para encontrar frutas rápidamente.
 
-- **Android Studio 📲**
-> [!WARNING]
->## Version de Android
+[!IMPORTANT]
+Glorifrutas requiere conexión a Internet para acceder a toda la información de la base de datos.
 
->- **Koala Feature Drop 🐨 (AGP 8.6.0)**
->- **Si tienes un AGP anterior, no arrancará la aplicacion**
+🛠 Tecnologías Utilizadas
+Android Studio 📲
+![!WARNING]
 
-## Instalación
+🚨 Versión de Android
+Koala Feature Drop 🐨 (AGP 8.6.0)
+Si tienes un AGP anterior, la aplicación no arrancará.
+[!NOTE]
+Compatibilidad: La app está optimizada para dispositivos con Android 10 o superior.
 
+🚀 Instalación
 Para ejecutar la aplicación en un entorno local, sigue estos pasos:
 
-1. Clona el repositorio:
-   git clone https://github.com/Dani-hdez9DAW/Glorifrutas.git
-2. Abre el proyecto en Android Studio.
-3. Ejecuta la aplicación en un emulador o dispositivo físico.
-4. ¡Listo! 🚀
+Clona el repositorio:
+bash
+Copiar
+Editar
+git clone https://github.com/Dani-hdez9DAW/Glorifrutas.git
+Abre el proyecto en Android Studio.
+Ejecuta la aplicación en un emulador o dispositivo físico.
+¡Listo! A disfrutar de Glorifrutas. 🚀
+[!TIP]
+Recomendación: Usa un dispositivo físico en lugar de un emulador para una mejor experiencia de rendimiento.
+
+[!IMPORTANT]
+Es necesario activar la opción "Depuración USB" en tu dispositivo si planeas instalar la app directamente desde Android Studio.
