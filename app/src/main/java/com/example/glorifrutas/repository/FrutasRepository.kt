@@ -2,99 +2,37 @@ package com.example.glorifrutas.repository
 
 import com.example.glorifrutas.R
 import com.example.glorifrutas.model.Fruta
+import com.google.firebase.firestore.FirebaseFirestore
 
 class FrutasRepository {
+
+    private val db = FirebaseFirestore.getInstance()
+
     fun getFrutas(): List<Fruta> {
-        val frutas = mutableListOf(
-            Fruta(
-                1,
-                "Manzana",
-                R.color.red_200,
-                "Una manzana roja deliciosa y jugosa, perfecta para un snack saludable.",
-                "Una manzana roja deliciosa y jugosa, perfecta para un snack saludable o para hacer postres. Es rica en fibra y vitaminas, y se puede disfrutar de muchas maneras diferentes, ya sea cruda, cocida o en jugos.",
-                R.drawable.manzana,
-                5,
-                "Las manzanas flotan en el agua porque están compuestas en un 25% de aire.",
-                "Estados Unidos 🇺🇸"
-            ),
-            Fruta(
-                2,
-                "Banana",
-                R.color.yellow_200,
-                "Una banana amarilla dulce y nutritiva, ideal para batidos y postres.",
-                "Una banana amarilla dulce y nutritiva, ideal para batidos, postres o simplemente como un snack rápido. Las bananas son una excelente fuente de potasio y energía, y son perfectas para llevar a cualquier lugar.",
-                R.drawable.banana,
-                4,
-                "Las bananas son técnicamente bayas.",
-                "Ecuador 🇪🇨"
-            ),
-            Fruta(
-                3,
-                "Naranja",
-                R.color.orange_800,
-                "Una naranja jugosa y rica en vitamina C, excelente para jugos frescos.",
-                "Una naranja jugosa y rica en vitamina C, excelente para jugos frescos o para comer directamente. Las naranjas son conocidas por su capacidad para fortalecer el sistema inmunológico y proporcionar una gran cantidad de antioxidantes.",
-                R.drawable.naranjas,
-                5,
-                "Las naranjas son el fruto cítrico más cultivado en el mundo.",
-                "España 🇪🇸"
-            ),
-            Fruta(
-                4,
-                "Fresa",
-                R.color.pink_200,
-                "Una fresa roja dulce y jugosa, perfecta para postres y batidos.",
-                "Una fresa roja dulce y jugosa, perfecta para postres y batidos. Las fresas son bajas en calorías y ricas en vitamina C, fibra y antioxidantes, lo que las convierte en una opción saludable y deliciosa.",
-                R.drawable.fresas,
-                5,
-                "Las fresas son la única fruta con semillas en el exterior.",
-                "México 🇲🇽"
-            ),
-            Fruta(
-                5,
-                "Uva",
-                R.color.purple_200,
-                "Un racimo de uvas moradas, ideal para snacks o para hacer vino.",
-                "Un racimo de uvas moradas, ideal para comer como snack o para hacer vino. Las uvas son ricas en antioxidantes y tienen propiedades antiinflamatorias, lo que las hace beneficiosas para la salud del corazón.",
-                R.drawable.uvas,
-                4,
-                "Las uvas son uno de los cultivos más antiguos del mundo.",
-                "Italia 🇮🇹"
-            ),
-            Fruta(
-                6,
-                "Piña",
-                R.color.orange_500,
-                "Una piña tropical dulce y jugosa, perfecta para jugos y postres.",
-                "Una piña tropical dulce y jugosa, perfecta para jugos y postres. La piña es conocida por su contenido de bromelina, una enzima que ayuda en la digestión y tiene propiedades antiinflamatorias.",
-                R.drawable.pinas,
-                5,
-                "Las piñas pueden tardar hasta tres años en madurar.",
-                "Costa Rica 🇨🇷"
-            ),
-            Fruta(
-                7,
-                "Mango",
-                R.color.orange_700,
-                "Un mango dulce y jugoso, ideal para batidos y postres tropicales.",
-                "Un mango dulce y jugoso, ideal para batidos y postres tropicales. Los mangos son ricos en vitaminas A y C, y son conocidos por su sabor exótico y su capacidad para mejorar la salud de la piel.",
-                R.drawable.mangos,
-                5,
-                "El mango es la fruta nacional de India, Pakistán y Filipinas.",
-                "India 🇮🇳"
-            ),
-            Fruta(
-                8,
-                "Sandía",
-                R.color.green_500,
-                "Una sandía grande y jugosa, perfecta para refrescarse en verano.",
-                "Una sandía grande y jugosa, perfecta para refrescarse en verano. La sandía es hidratante y baja en calorías, y es una excelente fuente de vitaminas A y C, así como de antioxidantes como el licopeno.",
-                R.drawable.sandias,
-                5,
-                "La sandía está compuesta en un 92% de agua.",
-                "Brasil 🇧🇷"
-            )
+        return listOf(
+            Fruta(1, "Manzana", 0xFFE57373.toInt(), "Una manzana roja deliciosa...", "Detalle largo...", R.drawable.manzana, 5, "Las manzanas flotan...", "Estados Unidos 🇺🇸"),
+            Fruta(2, "Banana", 0xFFFFEB3B.toInt(), "Una banana amarilla...", "Detalle largo...", R.drawable.banana, 4, "Las bananas son...", "Ecuador 🇪🇨"),
+            Fruta(3, "Naranja", 0xFFFF9800.toInt(), "Una naranja jugosa...", "Detalle largo...", R.drawable.naranjas, 5, "Las naranjas son...", "España 🇪🇸"),
+            Fruta(4, "Fresa", 0xFFFF4081.toInt(), "Una fresa roja...", "Detalle largo...", R.drawable.fresas, 5, "Las fresas son...", "México 🇲🇽"),
+            Fruta(5, "Uva", 0xFF9C27B0.toInt(), "Un racimo de uvas...", "Detalle largo...", R.drawable.uvas, 4, "Las uvas son...", "Italia 🇮🇹"),
+            Fruta(6, "Piña", 0xFFFFA726.toInt(), "Una piña tropical...", "Detalle largo...", R.drawable.pinas, 5, "Las piñas pueden...", "Costa Rica 🇨🇷"),
+            Fruta(7, "Mango", 0xFFFFA000.toInt(), "Un mango dulce...", "Detalle largo...", R.drawable.mangos, 5, "El mango es...", "India 🇮🇳"),
+            Fruta(8, "Sandía", 0xFF4CAF50.toInt(), "Una sandía grande...", "Detalle largo...", R.drawable.sandias, 5, "La sandía está...", "Brasil 🇧🇷")
         )
-        return frutas
+    }
+
+    fun guardarFrutasEnFirestore() {
+        val frutas = getFrutas()
+        for (fruta in frutas) {
+            db.collection("frutas")
+                .document(fruta.id.toString()) // Guardar con ID único
+                .set(fruta)
+                .addOnSuccessListener {
+                    println("Fruta ${fruta.nombre} guardada exitosamente en Firestore")
+                }
+                .addOnFailureListener { e ->
+                    println("Error al guardar ${fruta.nombre}: ${e.message}")
+                }
+        }
     }
 }

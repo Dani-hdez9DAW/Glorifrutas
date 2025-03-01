@@ -1,5 +1,6 @@
 package com.example.glorifrutas.view
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -10,6 +11,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -33,7 +35,7 @@ fun InfoFrutaScreen(
     frutaId: Int,
     viewModel: FrutasViewModel = viewModel()
 ) {
-    val frutas by viewModel.frutas.observeAsState(emptyList())
+    val frutas by viewModel.frutas.collectAsState()
     val fruta = frutas.find { it.id == frutaId }
 
     Scaffold(
@@ -54,16 +56,16 @@ fun InfoFrutaScreen(
             }
         }
     ) { innerPadding ->
-        fruta?.let {
+        fruta?.let { fruta ->
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(colorResource(id = fruta.colorResId))
+                    .background(Color(fruta.colorResId))
                     .padding(innerPadding)
                     .padding(16.dp)
             ) {
                 Text(
-                    text = "Nº " + String.format("%02d", it.id),
+                    text = "Nº " + String.format("%02d", fruta.id),
                     fontWeight = FontWeight.ExtraBold,
                     fontSize = 24.sp,
                     textDecoration = TextDecoration.Underline,
@@ -77,7 +79,7 @@ fun InfoFrutaScreen(
                         .padding(8.dp)
                         .weight(1f),
                     colors = CardDefaults.cardColors(
-                        containerColor = colorResource(id = it.colorResId)
+                        containerColor = colorResource(id = fruta.colorResId)
                     ),
                     shape = RoundedCornerShape(8.dp)
                 ) {
@@ -87,7 +89,7 @@ fun InfoFrutaScreen(
                     ) {
                         item {
                             Image(
-                                painter = painterResource(id = it.imagenResId),
+                                painter = painterResource(id = fruta.imagenResId),
                                 contentDescription = null,
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -96,22 +98,22 @@ fun InfoFrutaScreen(
                                     .padding(top = 2.dp) // Adjust the top padding to move the image up
                             )
                             Spacer(modifier = Modifier.height(4.dp))
-                            Text(text = it.nombre, fontWeight = FontWeight.Bold, fontSize = 24.sp)
+                            Text(text = fruta.nombre, fontWeight = FontWeight.Bold, fontSize = 24.sp)
                             Spacer(modifier = Modifier.height(4.dp))
-                            HorizontalDivider(thickness = 1.dp, color = Color.Black)
+                            Divider(thickness = 1.dp, color = Color.Black)
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(text = "Descripción", fontWeight = FontWeight.Bold, fontSize = 16.sp)
                             Spacer(modifier = Modifier.height(4.dp))
-                            Text(text = it.descripcionLarga)
+                            Text(text = fruta.descripcionLarga)
                             Spacer(modifier = Modifier.height(6.dp))
-                            HorizontalDivider(thickness = 1.dp, color = Color.Black)
+                            Divider(thickness = 1.dp, color = Color.Black)
                             Text(text = "Características", fontWeight = FontWeight.Bold)
                             Spacer(modifier = Modifier.height(2.dp))
                             Row(
                                 horizontalArrangement = Arrangement.Center,
                                 modifier = Modifier.fillMaxWidth()
                             ) {
-                                Text(text = it.datoCurioso)
+                                Text(text = fruta.datoCurioso)
                             }
                             Spacer(modifier = Modifier.height(2.dp))
                             Row(
@@ -119,7 +121,7 @@ fun InfoFrutaScreen(
                                 modifier = Modifier.fillMaxWidth()
                             ) {
                                 Text(text = "Cosecha principal: ", fontWeight = FontWeight.Bold, fontSize = 12.sp)
-                                Text(text = it.lugarCosecha)
+                                Text(text = fruta.lugarCosecha)
                             }
 
                             Text(text = "Valoración", fontWeight = FontWeight.Bold, fontSize = 12.sp)
@@ -130,13 +132,13 @@ fun InfoFrutaScreen(
                             ) {
                                 repeat(5) { index ->
                                     StarIcon(
-                                        filled = index < it.valoracion,
-                                        fruitId = it.id,
+                                        filled = index < fruta.valoracion,
+                                        fruitId = fruta.id,
                                         modifier = Modifier.padding(1.dp) // Less separation
                                     )
                                 }
                             }
-                            HorizontalDivider(thickness = 1.dp, color = Color.Black)
+                            Divider(thickness = 1.dp, color = Color.Black)
                         }
                     }
                 }
@@ -162,9 +164,10 @@ fun InfoFrutaScreen(
     }
 }
 
+@SuppressLint("ResourceAsColor")
 @Composable
 fun StarIcon(filled: Boolean, fruitId: Int, modifier: Modifier = Modifier) {
-    val color = if (fruitId == 2) colorResource(id = R.color.purple_200) else Color.Yellow
+    val color = if (fruitId == 2) Color(R.color.purple_200) else Color.Yellow
     Canvas(modifier = modifier.size(48.dp)) { // Increase the size of the star
         val starPath = androidx.compose.ui.graphics.Path().apply {
             moveTo(24f, 0f)
