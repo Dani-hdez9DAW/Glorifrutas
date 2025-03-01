@@ -48,7 +48,19 @@ class FrutasViewModel : ViewModel() {
                 }
         }
     }
-
+    fun actualizarFruta(fruta: Fruta) {
+        viewModelScope.launch {
+            db.collection("frutas")
+                .document(fruta.id.toString())
+                .set(fruta)
+                .addOnSuccessListener {
+                    Log.d("FrutasViewModel", "Fruta actualizada con ID: ${fruta.id}")
+                }
+                .addOnFailureListener { e ->
+                    Log.w("FrutasViewModel", "Error al actualizar fruta", e)
+                }
+        }
+    }
     fun agregarFruta(fruta: Fruta) {
         viewModelScope.launch {
             db.collection("frutas")
