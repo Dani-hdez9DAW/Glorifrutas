@@ -1,6 +1,7 @@
 package com.example.glorifrutas.view
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -10,10 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,14 +27,19 @@ import androidx.navigation.NavHostController
 import com.example.glorifrutas.R
 import com.example.glorifrutas.viewmodel.FrutasViewModel
 
+@SuppressLint("ResourceAsColor")
 @Composable
 fun InfoFrutaScreen(
     navController: NavHostController,
     frutaId: Int,
     viewModel: FrutasViewModel = viewModel()
 ) {
-    val frutas by viewModel.frutas.collectAsState()
-    val fruta = frutas.find { it.id == frutaId }
+    Log.d("InfoFrutaScreen", "frutaId: $frutaId")
+    LaunchedEffect(frutaId) {
+        viewModel.obtenerFrutaPorId(frutaId)
+    }
+
+    val fruta by viewModel.fruta.collectAsState()
 
     Scaffold(
         topBar = {
@@ -79,7 +82,7 @@ fun InfoFrutaScreen(
                         .padding(8.dp)
                         .weight(1f),
                     colors = CardDefaults.cardColors(
-                        containerColor = colorResource(id = fruta.colorResId)
+                        containerColor = Color(fruta.colorResId)
                     ),
                     shape = RoundedCornerShape(8.dp)
                 ) {
@@ -146,7 +149,7 @@ fun InfoFrutaScreen(
                 Button(
                     onClick = { navController.popBackStack() },
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = colorResource(id = R.color.purple_700),
+                        containerColor = Color(R.color.purple_700),
                         contentColor = Color.White
                     ),
                     modifier = Modifier

@@ -56,12 +56,10 @@ class MainActivity : ComponentActivity() {
         // Configura Firebase Database
         val database = Firebase.database
         val myRef = database.getReference("message")
-
+        frutasRepository.guardarFrutasEnFirestore()
         myRef.setValue("Base de datos conectada")
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                // Este método se llama una vez con el valor inicial y nuevamente
-                // cada vez que los datos en esta ubicación se actualizan.
                 val value = snapshot.getValue(String::class.java)
                 Log.d("MainActivity", "Value is: $value")
             }
@@ -70,9 +68,6 @@ class MainActivity : ComponentActivity() {
                 Log.w("MainActivity", "Failed to read value.", error.toException())
             }
         })
-
-
-
 
         setContent {
             GlorifrutasTheme {
@@ -83,9 +78,14 @@ class MainActivity : ComponentActivity() {
                 NavHost(navController, startDestination = "main") {
                     composable("main") { MainScreen(navController) }
                     composable("menuFrutas") { MenuFrutasScreen(navController) }
-                    composable("detalleFruta/{frutaId}") { backStackEntry ->
+                    composable("frutasDetail/{frutaId}") { backStackEntry ->
                         val frutaId = backStackEntry.arguments?.getString("frutaId")?.toInt() ?: 0
                         InfoFrutaScreen(navController, frutaId)
+                    }
+                    composable("CreateFrutaScreen") { CreateFrutaScreen(navController) }
+                    composable("frutasUpdate/{frutaId}") { backStackEntry ->
+                        val frutaId = backStackEntry.arguments?.getString("frutaId")?.toInt() ?: 0
+                        UpdateFrutaScreen(navController, frutaId)
                     }
                 }
             }
