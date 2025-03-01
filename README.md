@@ -14,17 +14,21 @@ caracteristicas, valoracion de cada fruta y curiosidades sobre cada fruta.
 - Interfaz amigable e intuitiva 🖒.
 - Musica de fondo 🎶
 
-## Tecnologías Utilizadas
+>[!TIP]
+>Usa la barra de búsqueda para encontrar frutas rápidamente.
 
-- **Android Studio 📲**
 
-## Version de Android
 
-- **Koala Feature Drop 🐨 (AGP 8.6.0)**
-- **Si tienes un AGP anterior, no arrancará la aplicacion**
+🛠 Tecnologías Utilizadas
+Android Studio 📲
+> [!WARNING]
+> 🚨 Versión de Android
+Koala Feature Drop 🐨 (AGP 8.6.0)
+Si tienes un AGP anterior, la aplicación no arrancará.
+>[!NOTE]
+>Compatibilidad: La app está optimizada para dispositivos con Android 10 o superior.
 
-## Instalación
-
+## 🚀 Instalación
 Para ejecutar la aplicación en un entorno local, sigue estos pasos:
 
 1. Clona el repositorio:
@@ -32,3 +36,9 @@ Para ejecutar la aplicación en un entorno local, sigue estos pasos:
 2. Abre el proyecto en Android Studio.
 3. Ejecuta la aplicación en un emulador o dispositivo físico.
 4. ¡Listo! 🚀
+
+>[!TIP]
+>Recomendación: Usa un dispositivo físico en lugar de un emulador para una mejor experiencia de rendimiento.
+
+>[!IMPORTANT]
+>Es necesario activar la opción "Depuración USB" en tu dispositivo si planeas instalar la app directamente desde Android Studio.
